@@ -91,13 +91,13 @@ open class EasyPromise {
     }
     
     fileprivate func onError(_ error: Error?) {
-        self.toDoList = []
         self._onError?(error)
+        self.dispose()
     }
     
     fileprivate func onComplete() {
-        self.toDoList = []
         self._onFinish?()
+        self.dispose()
     }
 }
 
